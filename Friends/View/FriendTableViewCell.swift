@@ -19,11 +19,9 @@ class FriendTableViewCell: UITableViewCell {
     @IBOutlet weak var picture: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     
-    
-    
     func updateViews() {
         guard let friend = friend else { return }
-        nameLabel.text = friend.name
-        picture.image = friend.image
+        nameLabel?.text = friend.name
+        picture?.image = friend.image
     }
 }

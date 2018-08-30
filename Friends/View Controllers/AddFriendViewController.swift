@@ -13,12 +13,12 @@ class AddFriendViewController: UIViewController, UIImagePickerControllerDelegate
     var friend: Friend?
     var friendController: FriendController?
     
-    @IBOutlet weak var pictureView: UIImageView!
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var infoTextView: UITextView!
     
     @IBAction func save(_ sender: Any) {
-        guard let name = nameTextField.text, let info = infoTextView.text, let image = pictureView.image else { return }
+        guard let name = nameTextField.text, let info = infoTextView.text, let image = imageView.image else { return }
         
         friendController?.createFriend(withName: name, image: image, info: info)
         
@@ -49,6 +49,6 @@ class AddFriendViewController: UIViewController, UIImagePickerControllerDelegate
         
         // Get image user picked
         guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage else { return }
-        pictureView.image = image
+        imageView.image = image
     }
 }

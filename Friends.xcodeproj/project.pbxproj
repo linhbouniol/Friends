@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3913BCD821389C5D008E665E /* NavigationControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3913BCD721389C5D008E665E /* NavigationControllerDelegate.swift */; };
+		3913BCDA21389DD9008E665E /* ImageTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3913BCD921389DD9008E665E /* ImageTransitionAnimator.swift */; };
 		3951C425213872DC001B39A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3951C424213872DC001B39A1 /* AppDelegate.swift */; };
 		3951C42A213872DC001B39A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3951C428213872DC001B39A1 /* Main.storyboard */; };
 		3951C42C213872DC001B39A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3951C42B213872DC001B39A1 /* Assets.xcassets */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3913BCD721389C5D008E665E /* NavigationControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerDelegate.swift; sourceTree = "<group>"; };
+		3913BCD921389DD9008E665E /* ImageTransitionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTransitionAnimator.swift; sourceTree = "<group>"; };
 		3951C421213872DC001B39A1 /* Friends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Friends.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3951C424213872DC001B39A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3951C429213872DC001B39A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -79,6 +83,15 @@
 			path = "View Controllers";
 			sourceTree = "<group>";
 		};
+		3913BCDB2138A5E8008E665E /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				3913BCD721389C5D008E665E /* NavigationControllerDelegate.swift */,
+				3913BCD921389DD9008E665E /* ImageTransitionAnimator.swift */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
 		3951C418213872DC001B39A1 = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				3951C424213872DC001B39A1 /* AppDelegate.swift */,
+				3913BCDB2138A5E8008E665E /* Animation */,
 				3913BCD321389BEF008E665E /* Model */,
 				3913BCD421389BF5008E665E /* Model Controller */,
 				3913BCD521389BFD008E665E /* View */,
@@ -185,7 +199,9 @@
 				3951C439213882B3001B39A1 /* FriendTableViewCell.swift in Sources */,
 				3951C44121388CB4001B39A1 /* AddFriendViewController.swift in Sources */,
 				3951C43F21388491001B39A1 /* FriendController.swift in Sources */,
+				3913BCDA21389DD9008E665E /* ImageTransitionAnimator.swift in Sources */,
 				3951C437213882A1001B39A1 /* FriendsTableViewController.swift in Sources */,
+				3913BCD821389C5D008E665E /* NavigationControllerDelegate.swift in Sources */,
 				3951C43D21388483001B39A1 /* Friend.swift in Sources */,
 				3951C43B2138841C001B39A1 /* FriendDetailViewController.swift in Sources */,
 				3951C425213872DC001B39A1 /* AppDelegate.swift in Sources */,

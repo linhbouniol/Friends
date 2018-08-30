@@ -11,6 +11,13 @@ import UIKit
 class FriendsTableViewController: UITableViewController {
     
     let friendController = FriendController()
+    let navigationControllerDelegate = NavigationControllerDelegate()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        navigationController?.delegate = navigationControllerDelegate
+    }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -46,9 +53,13 @@ class FriendsTableViewController: UITableViewController {
             detailVC.friendController = friendController // this doesn't seem to be happeneing - forgot to set the ViewController in storyboard?
             
             if segue.identifier == "ShowDetail" {
-                guard let index = tableView.indexPathForSelectedRow?.row else { return }
-                let friend = friendController.friends[index]
+                guard let indexPath = tableView.indexPathForSelectedRow else { return }
+                let friend = friendController.friends[indexPath.row]
                 detailVC.friend = friend
+                
+                // Let animator know where the animation starts, which is at the cell that is tapped
+                let cell = tableView.cellForRow(at: indexPath) as! FriendTableViewCell
+                navigationControllerDelegate.sourceCell = cell
             }
         }
         

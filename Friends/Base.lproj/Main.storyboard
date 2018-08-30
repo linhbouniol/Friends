@@ -53,7 +53,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="nameLabel" destination="vd6-JF-Bho" id="FE5-Jf-5bE"/>
-                                    <outlet property="picture" destination="NcZ-lu-xVL" id="eEt-xK-018"/>
+                                    <outlet property="picture" destination="NcZ-lu-xVL" id="h0H-GC-9B4"/>
                                     <segue destination="pdy-z2-WZG" kind="show" identifier="ShowDetail" id="qfm-aD-DuT"/>
                                 </connections>
                             </tableViewCell>
@@ -135,9 +135,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="imageView" destination="F9F-DC-UEU" id="JEl-pW-cTx"/>
                         <outlet property="infoTextView" destination="CR1-m0-BN0" id="5AB-hU-DvW"/>
                         <outlet property="nameTextField" destination="KgT-k8-YHY" id="gx7-PQ-OHE"/>
-                        <outlet property="pictureView" destination="F9F-DC-UEU" id="2NG-xj-fjd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xuc-UK-bph" userLabel="First Responder" sceneMemberID="firstResponder"/>
