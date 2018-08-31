@@ -29,6 +29,7 @@ class FriendDetailViewController: UIViewController {
     
     func updateViews() {
         guard let friend = friend else { return }
+        self.title = friend.name
         nameLabel?.text = friend.name
         imageView?.image = friend.image
         textView?.text = friend.info
