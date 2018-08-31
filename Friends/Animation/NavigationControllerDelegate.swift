@@ -14,6 +14,7 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate {
     var sourceCell: FriendTableViewCell?
     
     var imageTransitionAnimator = ImageTransitionAnimator()
+    var customInteractor: CustomInteractor?
     
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
@@ -26,7 +27,11 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate {
             // this makes sure that the animation would run only when we're going from the FriendsTableVC to the FriendDetailVC, return nil otherwise
             guard operation == .push else { return nil }
             
-            let _ = toVC.view
+            // Loading the view, b/c it might not be loaded yet for the following steps to occur
+//            let _ = toVC.view
+            
+            // CustomInteractor always loads the view for us, b/c we ask for it in there
+            customInteractor = CustomInteractor(for: toVC)
             
             imageTransitionAnimator.fromImageView = sourceCell?.picture
             imageTransitionAnimator.toImageView = toVC.imageView
@@ -38,7 +43,7 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate {
         
         if let fromVC = fromVC as? FriendDetailViewController {
             
-            // If there is another VC connected to FriendDetail, we don't want to animation when going to there. 
+            // If there is another VC connected to FriendDetail, we don't want to animation when going to there.
             // this makes sure that the animation would run only when we're going back from the FriendDetailVC to the FriendsTableVC, return nil otherwise
             guard operation == .pop else { return nil }
             
@@ -53,5 +58,16 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate {
         }
         
         return nil // was in the guard as well
+    }
+    
+    func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        
+        guard let customInteractor = customInteractor else { return nil }
+        
+        if customInteractor.transitionInProgress {
+            return customInteractor
+        } else {
+            return nil
+        }
     }
 }
