@@ -46,7 +46,9 @@ class ImageTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         let tempImageView = UIImageView()
         containerView.addSubview(tempImageView)
         tempImageView.image = fromImageView.image
-        tempImageView.contentMode = fromImageView.contentMode   // this will correct the sizing of the image, since we changed it in the storyboard to be aspect fit
+        tempImageView.contentMode = fromImageView.contentMode   // this will correct the sizing of the image, since we changed it in the storyboard to be aspect fill
+        tempImageView.layer.cornerRadius = fromImageView.layer.cornerRadius
+        tempImageView.clipsToBounds = true
         tempImageView.frame = fromImageView.convert(startImageFrame, to: containerView)
         
         let tempLabel = UILabel()
@@ -65,6 +67,8 @@ class ImageTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         let duration = transitionDuration(using: transitionContext)
         
         UIView.animate(withDuration: duration, animations: {
+            tempImageView.layer.cornerRadius = self.toImageView.layer.cornerRadius
+            
             tempImageView.frame = self.toImageView.convert(endImageFrame, to: containerView)
             tempLabel.frame = self.toNameLabel.convert(endLabelFrame, to: containerView)
             toView.alpha = 1.0

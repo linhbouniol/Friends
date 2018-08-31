@@ -23,5 +23,8 @@ class FriendTableViewCell: UITableViewCell {
         guard let friend = friend else { return }
         nameLabel?.text = friend.name
         picture?.image = friend.image
+        
+        picture?.layer.cornerRadius = 8
+        picture?.clipsToBounds = true
     }
 }
